@@ -1,1 +1,5 @@
-export { getWcStorybookHelpers, setWcStorybookHelpersConfig } from './storybook-utils.js';
+export {
+  getWcStorybookHelpers,
+  setWcStorybookHelpersConfig,
+  setCustomElementsManifest,
+} from "./storybook-utils.js";
