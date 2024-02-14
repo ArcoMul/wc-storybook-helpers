@@ -28,6 +28,7 @@
     "@storybook/addon-essentials": "^7.2.3",
     "@storybook/addon-links": "^7.2.3",
     "@storybook/blocks": "^7.2.3",
+    "@storybook/types": "^7.2.3",
     "@storybook/web-components": "^7.2.3",
     "@storybook/web-components-vite": "^7.2.3",
     "babel-loader": "^8.3.0",
