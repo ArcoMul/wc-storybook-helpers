@@ -7,29 +7,6 @@ export interface Options {
   hideScriptTag?: boolean;
 }
 
-export interface ArgTypes {
-  [key: string]: ArgSettings;
-}
-
-interface ArgSettings {
-  /** The name of the property. */
-  name: string;
-  type?: ArgSettingsType;
-  defaultValue?: string | boolean | number | object;
-  /** Sets a Markdown description for the property. */
-  description?: string;
-  table?: Table;
-  control?: Control | ControlOptions;
-  options?: string[];
-}
-
-interface ArgSettingsType {
-  /** Sets a type for the property. */
-  name?: string;
-  /** Sets the property as optional or required. */
-  required?: boolean;
-}
-
 interface Table {
   type?: TableType;
   defaultValue?: TableDefaultValue;

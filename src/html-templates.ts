@@ -10,6 +10,7 @@ import {
   getSlots,
 } from "./cem-utilities.js";
 import { Options } from "./storybook";
+import type { Args } from "@storybook/types";
 
 let argObserver: MutationObserver | undefined;
 let lastTagName: string | undefined;
@@ -76,14 +77,14 @@ ${
  * @param args args object from Storybook story
  * @returns styles in a tagged template literal
  */
-export function getStyleTemplate(component?: Declaration, args?: any) {
+export function getStyleTemplate(component?: Declaration, args?: Args) {
   const cssPartsTemplate = getCssPartsTemplate(component!, args) || "";
 
   return `${cssPartsTemplate}`.replaceAll(/\s+/g, "") != ""
     ? html`<style>
         ${unsafeStatic(cssPartsTemplate)}
       </style> `
-    : "";
+    : html``;
 }
 
 /**
@@ -92,7 +93,7 @@ export function getStyleTemplate(component?: Declaration, args?: any) {
  * @param args args object from Storybook story
  * @returns object of properties and attributes with their values
  */
-function getTemplateOperators(component: Declaration, args: any) {
+function getTemplateOperators(component: Declaration, args: Args) {
   const attributes = getAttributesAndProperties(component);
   const attrOperators: any = {};
   const propOperators: any = {};
@@ -155,7 +156,7 @@ function getCssPropTemplate(component: Declaration, args: any) {
  * @param args args object from Storybook story
  * @returns formatted string with CSS shadow parts and their styles
  */
-function getCssPartsTemplate(component: Declaration, args: any) {
+function getCssPartsTemplate(component: Declaration, args?: Args) {
   if (!component?.cssParts?.length) {
     return;
   }
@@ -183,7 +184,7 @@ function getCssPartsTemplate(component: Declaration, args: any) {
  * @param args args object from Storybook story
  * @returns formatted string with slots and their values
  */
-function getSlotsTemplate(component: Declaration, args: any) {
+function getSlotsTemplate(component: Declaration, args: Args) {
   if (!component?.slots?.length) {
     return;
   }
