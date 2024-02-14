@@ -100,7 +100,7 @@ function getTemplateOperators(component: Declaration, args: Args) {
 
   Object.keys(attributes).forEach((key) => {
     const attr = attributes[key];
-    if (attr?.table?.category !== "attributes") {
+    if (attr?.table?.category !== "attributes" || !attr.name) {
       return;
     }
 
